@@ -179,14 +179,6 @@
         },
         {
           "type": "STRING",
-          "value": "<"
-        },
-        {
-          "type": "STRING",
-          "value": ">"
-        },
-        {
-          "type": "STRING",
           "value": "'"
         },
         {
@@ -464,6 +456,14 @@
         {
           "type": "SYMBOL",
           "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": " "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
         }
       ]
     },

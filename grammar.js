@@ -55,8 +55,6 @@ module.exports = grammar({
       '|',
       '/',
       '?',
-      '<',
-      '>',
       '\'',
       '=',
       '"'
@@ -126,7 +124,11 @@ module.exports = grammar({
       /[a-zA-Z0-9_]\w*/
     ),
 
-    bold_identifier: $ => choice($.identifier),
+    bold_identifier: $ => choice(
+      $.identifier,
+      ' ',
+      $.symbol
+    ),
 
     bold_symbol_s: $ => '<',
     bold_symbol_e: $ => '>',

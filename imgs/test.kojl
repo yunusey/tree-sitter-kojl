@@ -1,0 +1,19 @@
+* You can write titles.
+# With different symbols.
+$ You can also put headers:
+	# This is a header.
+	+ This is a header with subheaders:
+		% This is a subheader.
+		% So is this. 
+		% Subheaders can have sections:
+			* This is a section.
+			* This is also a section.
+
+		% There are few text options:
+			* <This is a bold text>
+			* :This is an underlined text:
+
+	+ You can continue your headers, titles, subheaders, and sections whenever you would like to.
+	+ You can use <bold texts> and :underlined text: wherever you would like to.
+
+$ Thanks!

@@ -5,24 +5,18 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "identifier",
           "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
         }
       ]
     }
-  },
-  {
-    "type": "bold_symbol_e",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "bold_symbol_s",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "bold_text",
@@ -403,15 +397,7 @@
     "named": false
   },
   {
-    "type": "<",
-    "named": false
-  },
-  {
     "type": "=",
-    "named": false
-  },
-  {
-    "type": ">",
     "named": false
   },
   {
@@ -441,6 +427,14 @@
   {
     "type": "`",
     "named": false
+  },
+  {
+    "type": "bold_symbol_e",
+    "named": true
+  },
+  {
+    "type": "bold_symbol_s",
+    "named": true
   },
   {
     "type": "underline_symbol",
