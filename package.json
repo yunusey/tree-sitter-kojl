@@ -1,0 +1,36 @@
+{
+  "name": "tree-sitter-kojl",
+  "version": "1.0.0",
+  "description": "Treesitter for note-taking app Kojl.",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunusey/tree-sitter-kojl.git"
+  },
+  "keywords": [
+    "treesitter"
+  ],
+  "author": "yunusey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yunusey/tree-sitter-kojl/issues"
+  },
+  "homepage": "https://github.com/yunusey/tree-sitter-kojl#readme",
+  "dependencies": {
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.7"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.kojl",
+      "file-types": [
+        "kojl"
+      ]
+    }
+  ]
+}
