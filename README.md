@@ -7,6 +7,7 @@ The configuration for neovim:
 ```bash
 git clone https://github.com/yunusey/tree-sitter-kojl
 mkdir ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/kojl/
+cd tree-sitter-kojl/; cargo build;
 cp tree-sitter-kojl/queries/* ~/.local/share/nvim/site/pack/packer/start/nvim-treesitter/queries/kojl/
 ```
 ```lua
