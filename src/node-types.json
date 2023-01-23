@@ -8,15 +8,25 @@
       "required": false,
       "types": [
         {
-          "type": "identifier",
+          "type": "bsymbol",
           "named": true
         },
         {
-          "type": "symbol",
+          "type": "identifier",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "bold_symbol_e",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bold_symbol_s",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "bold_text",
@@ -40,6 +50,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "bsymbol",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "expression",
@@ -101,6 +116,11 @@
   },
   {
     "type": "normal_definition",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "number",
     "named": true,
     "fields": {}
   },
@@ -172,7 +192,17 @@
   {
     "type": "starter",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "subheader_definition",
@@ -397,7 +427,15 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
     "named": false
   },
   {
@@ -406,6 +444,14 @@
   },
   {
     "type": "@",
+    "named": false
+  },
+  {
+    "type": "PS:",
+    "named": false
+  },
+  {
+    "type": "TODO:",
     "named": false
   },
   {
@@ -427,14 +473,6 @@
   {
     "type": "`",
     "named": false
-  },
-  {
-    "type": "bold_symbol_e",
-    "named": true
-  },
-  {
-    "type": "bold_symbol_s",
-    "named": true
   },
   {
     "type": "underline_symbol",
