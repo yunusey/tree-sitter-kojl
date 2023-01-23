@@ -17,7 +17,9 @@ module.exports = grammar({
       // TODO: other kinds of definitions
     ),
 
-    starter: $ => choice(
+    starter: $ => seq(
+      repeat($.number),
+      choice(
       "#",
       "*",
       "-",
@@ -26,10 +28,13 @@ module.exports = grammar({
       ",",
       ".",
       "%",
-      '+'
-    ),
+      '+',
+      "PS:",
+      "TODO:",
+      '>'
+    )),
 
-    symbol: $ => choice(
+    _symbol: $ => choice(
       "#",
       "*",
       "-",
@@ -57,8 +62,10 @@ module.exports = grammar({
       '?',
       '\'',
       '=',
-      '"'
+      '"',
     ),
+
+    symbol: $ => prec(0, choice('>', $._symbol)),
 
     title_starter: $ => prec(1, seq(
       $.starter
@@ -76,27 +83,27 @@ module.exports = grammar({
       $.starter
     )),
 
-    title_definition: $ => prec(4, seq(
+    title_definition: $ => prec(1, seq(
       optional("\n"),
       $.title_starter,
       repeat($.text)
     )),
 
-    header_definition: $ => prec(3, seq(
+    header_definition: $ => prec(2, seq(
       optional("\n"),
       '\t',
       $.header_starter,
       repeat($.text)
     )),
 
-    subheader_definition: $ => prec(2, seq(
+    subheader_definition: $ => prec(3, seq(
       optional("\n"),
       '\t\t',
       $.subheader_starter,
       repeat($.text)
     )),
 
-    section_definition: $ => prec(1, seq(
+    section_definition: $ => prec(4, seq(
       optional("\n"),
       '\t\t\t',
       repeat('\t'),
@@ -104,14 +111,15 @@ module.exports = grammar({
       repeat($.text)
     )),
 
-    normal_definition: $ => prec(0, seq(
-      '\n'
+    normal_definition: $ => prec(-1, seq(
+      '\n',
+      repeat('\t'),
     )),
 
     text: $ => choice(
+      $.bold_text,
       $.identifier,
       $.expression,
-      $.bold_text,
       $.underlined_text,
     ),
 
@@ -120,24 +128,31 @@ module.exports = grammar({
       $.symbol
     )),
 
-    identifier: $ => choice(
+    identifier: $ => prec(4, choice(
       /[a-zA-Z0-9_]\w*/
+    )),
+
+    number: $ => choice(
+      /[0-9]/
     ),
 
-    bold_identifier: $ => choice(
+    bold_identifier: $ => prec(6, choice(
       $.identifier,
       ' ',
-      $.symbol
-    ),
+      $.bsymbol,
+    )),
 
-    bold_symbol_s: $ => '<',
-    bold_symbol_e: $ => '>',
+    bsymbol: $ => prec(6, $._symbol),
 
-    bold_text: $ => seq(
+    bold_symbol_s: $ => prec(6, '<'),
+    bold_symbol_e: $ => prec(6, '>'),
+
+    bold_text: $ => prec(6, seq(
       $.bold_symbol_s,
       repeat($.bold_identifier),
-      $.bold_symbol_e
-    ),
+      repeat1($.bold_symbol_e),
+      optional(' ')
+    )),
 
     underlined_identifier: $ => choice(
       $.identifier,
@@ -152,6 +167,5 @@ module.exports = grammar({
       repeat($.underlined_identifier),
       $.underline_symbol,
     ),
-
   }
 });
